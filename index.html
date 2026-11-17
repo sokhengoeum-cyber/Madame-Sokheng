@@ -1,1 +1,414 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon espace pédagogique</title>
+
+<style>
+:root {
+  --primary: #5CBCC5;
+  --dark: #24545A;
+  --light: #EAF8F8;
+  --white: #FFFFFF;
+  --background: #F7FBFC;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: #263D40;
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 12px #00000010;
+}
+
+.logo {
+  color: var(--dark);
+  font-size: 23px;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  margin: 8px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  background: var(--light);
+  padding: 85px 8%;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--dark);
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 14px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-top: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+section {
+  padding: 60px 8%;
+}
+
+h2 {
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 35px;
+  font-size: 28px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(210px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 4px 15px #0000000B;
+}
+
+.emoji {
+  font-size: 42px;
+}
+
+.card h3 {
+  color: var(--dark);
+  margin: 12px 0;
+}
+
+.card p {
+  margin-bottom: 18px;
+}
+
+.card button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 11px 22px;
+  cursor: pointer;
+}
+
+.card button:hover,
+.btn:hover {
+  background: var(--dark);
+}
+
+.quiz {
+  background: #FFF3D5;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.quiz button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 13px;
+  border: 1px solid #E4D6AD;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.quiz button:hover {
+  background: var(--light);
+}
+
+#resultat {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.assistant {
+  background: var(--light);
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+}
+
+.assistant p {
+  margin-bottom: 12px;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+@media(max-width: 650px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav {
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 29px;
+  }
+
+  section {
+    padding: 45px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌿 Mon espace pédagogique</div>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#activites">Activités</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#assistant">Assistant IA</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="accueil">
+  <h1>Bienvenue dans ton espace d'apprentissage !</h1>
+
+  <p>
+    Apprends une langue autrement !
+    Découvre, entraîne-toi et progresse à ton rythme.
+  </p>
+
+  <a href="#activites" class="btn">
+    Commencer à apprendre
+  </a>
+</section>
+
+<section id="activites">
+
+  <h2>📚 Découvre nos quatre rubriques</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="emoji">📖</div>
+      <h3>Vocabulaire</h3>
+      <p>
+        Découvre de nouveaux mots
+        et enrichis ton vocabulaire.
+      </p>
+      <button onclick="ouvrir('Vocabulaire')">
+        Découvrir
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">✏️</div>
+      <h3>Grammaire</h3>
+      <p>
+        Comprends les règles
+        et entraîne-toi.
+      </p>
+      <button onclick="ouvrir('Grammaire')">
+        Découvrir
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎧</div>
+      <h3>Compréhension</h3>
+      <p>
+        Lis, écoute et améliore
+        ta compréhension.
+      </p>
+      <button onclick="ouvrir('Compréhension')">
+        Découvrir
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎮</div>
+      <h3>Jeux et quiz</h3>
+      <p>
+        Apprends en t'amusant
+        avec des activités interactives.
+      </p>
+      <button onclick="ouvrir('Jeux et quiz')">
+        Découvrir
+      </button>
+    </div>
+
+  </div>
+
+  <p id="message" style="text-align:center;margin-top:25px"></p>
+
+</section>
+
+<section id="quiz">
+
+  <h2>🎯 Teste tes connaissances !</h2>
+
+  <div class="quiz">
+
+    <h3>Choisis la bonne réponse :</h3>
+
+    <p style="margin:15px">
+      Comment dit-on « Bonjour » en anglais ?
+    </p>
+
+    <button onclick="verifier(false)">
+      Good night
+    </button>
+
+    <button onclick="verifier(true)">
+      Hello
+    </button>
+
+    <button onclick="verifier(false)">
+      Goodbye
+    </button>
+
+    <p id="resultat"></p>
+
+  </div>
+
+</section>
+
+<section id="assistant">
+
+  <div class="assistant">
+
+    <h2>🤖 Ton assistant pédagogique</h2>
+
+    <p>
+      Tu as une question ?
+      Tu souhaites comprendre une règle ?
+    </p>
+
+    <p>
+      Tu souhaites obtenir un indice
+      pour réussir un exercice ?
+    </p>
+
+    <p>
+      <strong>
+        Ton assistant IA sera bientôt disponible ici !
+      </strong>
+    </p>
+
+    <p>
+      Il t'aidera à apprendre et à progresser
+      sans donner directement les réponses.
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 – Mon espace pédagogique</p>
+  <p>Apprendre, pratiquer et progresser ensemble 🌿</p>
+</footer>
+
+<script>
+
+function ouvrir(rubrique) {
+
+  document.getElementById("message").innerText =
+    "Bienvenue dans la rubrique : " +
+    rubrique +
+    " ! Les activités seront bientôt disponibles.";
+
+}
+
+function verifier(correct) {
+
+  const resultat =
+    document.getElementById("resultat");
+
+  if (correct) {
+
+    resultat.innerText =
+      "Bravo ! 🎉 C'est la bonne réponse !";
+
+    resultat.style.color = "green";
+
+  } else {
+
+    resultat.innerText =
+      "Essaie encore ! Tu peux y arriver 💪";
+
+    resultat.style.color = "#B34B35";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
+
